@@ -14,7 +14,7 @@ def index():
 	else:
 		return jsonify({'about': 'Hello World'})
 
-@app.route('/multi/<string:s>/trans' , methods=['GET'])
+@app.route('/multi/<string:s>/trans/' , methods=['GET'])
 def requestroute(s):
 	print(s)
 	z=transvtime.trans(s)
