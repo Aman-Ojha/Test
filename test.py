@@ -1,43 +1,25 @@
-import time
-from flask import Flask, request
+D={}
+idx=[1001,1002,1003,1004,1005,1006,1007,1008,1009,1010]
+name=["Rashi Bank","Premium Bank Corp.","New Walth Trust","IDIDI Bank","Premium Bank Corp","IDIDI Bank","New Wealth Trust","Rashi Bank","Rashi Bank","New Wealth Trust"]
+amount=[50000,30000,5000,45000,80000,50000,5000,7000,12500,50000]
+duration=[6,4,1,1,5,8,3,2,3,12]
+ty=["Business","Personal","Business","Personal","Personal","Business","Personal","Business","Personal","Personal"]
+interest=[10,9,8,10,11,10,10,10.5,10,9.5]
+for i in range(10):
+    d={}
+    d["id"]=idx[i]
+    d["name"]=name[i]
+    d["amount"]=amount[i]
+    d["duration"]=duration[i]
+    d["type"]=ty[i]
+    d["interest"]=interest[i]
+    D[i]=d
 
-app = Flask(__name__)
-
-# We create global variables to keep track of the counter
-speed = thetime = cents = 0
-
-
-@app.route('/', methods=["GET"])
-def post():
-    global speed, thetime, cents
-
-    # Check if previous counter is running
-    counter_running = True if thetime else False
-
-    thetime = int(request.args["time"])
-    speed = float(request.args["speed"])
-    cents = request.args["cents"]
-
-    print('\n')
-    print('AccuView Digital:')
-    print('Speed:', speed, ' Time:', thetime, ' Cents:', cents)
-    print('-------------------------------')
-
-    def countdown():
-        global thetime, speed
-        while thetime:
-            mins, secs = divmod(thetime, 60)
-            timer = '{:02d}:{:02d}'.format(mins, secs)
-            print('Tijd:', timer, end="\r")
-            time.sleep((speed + 1) / 1000)
-            thetime -= 1
-            if thetime == 0:
-                print('Werp geld in\n')
-
-    # If existing counter is running, then we don't start another counter
-    if not counter_running:
-        countdown()
-    return '1'
-
-
-app.run(host='192.168.1.107', port= 8099)
+Z={}
+j=0
+for i in D:
+    t=D[i]["name"]
+    if t=="Rashi Bank":
+        Z[str(j)]=D[i]
+        j+=1
+print(Z)

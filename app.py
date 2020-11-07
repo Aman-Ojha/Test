@@ -63,16 +63,10 @@ def requestroute6(s):
 	
 	return z
 
-@app.route('/multi/<string:s>/status/' , methods=['GET'])
+@app.route('/multi/<string:s>/rashi/' , methods=['GET'])
 def requestroute7(s):
 	print(s)
-	z='pending'
-	
-
-	import time
-	time.sleep(30)
-	z='approved'
-	
+	z=transvtime.rashi()
 	return z
 
 '''@app.route('/multi/<string:s>/status/')
