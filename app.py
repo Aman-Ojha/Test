@@ -63,5 +63,28 @@ def requestroute6(s):
 	
 	return z
 
+@app.route('/multi/<string:s>/status/' , methods=['GET'])
+def requestroute7(s):
+	print(s)
+	z='pending'
+	
+
+	import time
+	time.sleep(30)
+	z='approved'
+	
+	return z
+
+'''@app.route('/multi/<string:s>/status/')
+def start_task():
+    def do_work(value):
+        # do something that takes a long time
+        import time
+        time.sleep(value)
+
+    thread = Thread(target=do_work, kwargs={'value': request.args.get('value', 20)})
+    thread.start()
+    return 'started'''
+
 if __name__ == '__main__':
 	app.run(debug=True)

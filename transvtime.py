@@ -185,13 +185,13 @@ def loan():
     interest=[10,9,8,10,11,10,10,10.5,10,9.5]
     for i in range(10):
         d={}
-        d["id"]=idx[i]
-        d["name"]=name[i]
-        d["amount"]=amount[i]
-        d["duration"]=duration[i]
-        d["type"]=ty[i]
-        d["interest"]=interest[i]
-        D[i]=d
+        d["id"]=idx
+        d["name"]=name
+        d["amount"]=amount
+        d["duration"]=duration
+        d["type"]=ty
+        d["interest"]=interest
+    D=d   
     return D
 def bank():
     return loan()[0]
