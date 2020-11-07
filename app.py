@@ -49,5 +49,19 @@ def requestroute4(s):
 	
 	return z
 
+@app.route('/multi/<string:s>/loans/' , methods=['GET'])
+def requestroute5(s):
+	print(s)
+	z=transvtime.loan()
+	
+	return z
+
+@app.route('/multi/<string:s>/bank/' , methods=['GET'])
+def requestroute6(s):
+	print(s)
+	z=transvtime.bank()
+	
+	return z
+
 if __name__ == '__main__':
 	app.run(debug=True)
